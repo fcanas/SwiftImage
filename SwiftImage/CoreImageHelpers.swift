@@ -165,6 +165,47 @@ func SRGBToneCurveToLinear() -> Filter {
     }
 }
 
+func temperatureAndTint(neutral: CIVector, targetNeutral: CIVector) -> Filter {
+    return { image in
+        let parameters : CIParameters = [
+            "inputNeutral": neutral,
+            "inputTargetNeutral": targetNeutral,
+            kCIInputImageKey: image]
+        let filter = CIFilter(name:"CITemperatureAndTint", withInputParameters:parameters)
+        return filter.outputImage
+    }
+}
+
+func toneCurve(point0: CIVector, point1: CIVector, point2: CIVector, point3: CIVector, point4: CIVector) -> Filter {
+    return { image in
+        let parameters : CIParameters = [
+            "inputPoint0": point0,
+            "inputPoint1": point1,
+            "inputPoint2": point2,
+            "inputPoint3": point3,
+            "inputPoint4": point4,
+            kCIInputImageKey: image]
+        let filter = CIFilter(name:"CIToneCurve", withInputParameters:parameters)
+        return filter.outputImage
+    }
+}
+
+func vibrance(amount: Double) -> Filter {
+    return { image in
+        let parameters : CIParameters = ["inputAmount": amount, kCIInputImageKey: image]
+        let filter = CIFilter(name:"CIVibrance", withInputParameters:parameters)
+        return filter.outputImage
+    }
+}
+
+func whitePointAdjust(color: UIColor) -> Filter {
+    return { image in
+        let parameters : CIParameters = [kCIInputColorKey: CIColor(CGColor: color.CGColor), kCIInputImageKey: image]
+        let filter = CIFilter(name:"CIWhitePointAdjust", withInputParameters:parameters)
+        return filter.outputImage
+    }
+}
+
 // MARK: - Other
 
 extension CIVector {
