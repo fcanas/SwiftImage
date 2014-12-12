@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Fabián Cañas. All rights reserved.
 //
 
+// https://developer.apple.com/library/ios/documentation/GraphicsImaging/Reference/CoreImageFilterReference/index.html
+
 import UIKit
 import CoreImage
 
@@ -202,6 +204,51 @@ func whitePointAdjust(color: UIColor) -> Filter {
     return { image in
         let parameters : CIParameters = [kCIInputColorKey: CIColor(CGColor: color.CGColor), kCIInputImageKey: image]
         let filter = CIFilter(name:"CIWhitePointAdjust", withInputParameters:parameters)
+        return filter.outputImage
+    }
+}
+
+// MARK: - CICategoryColorEffect
+
+func colorCrossPolynomial(redCoefficients: CIVector, greenCoefficients: CIVector, blueCoefficients: CIVector) -> Filter {
+    return { image in
+        let parameters : CIParameters = [
+            "inputRedCoefficients": redCoefficients,
+            "inputGreenCoefficients": greenCoefficients,
+            "inputBlueCoefficients": blueCoefficients,
+            kCIInputImageKey: image]
+        let filter = CIFilter(name:"CIColorCrossPolynomial", withInputParameters:parameters)
+        return filter.outputImage
+    }
+}
+
+func colorCube(dimension: Int, cube: NSData) -> Filter {
+    return { image in
+        let parameters : CIParameters = [
+            "inputCubeDimension": dimension,
+            "inputCubeData": cube,
+            kCIInputImageKey: image]
+        let filter = CIFilter(name:"CIColorCube", withInputParameters:parameters)
+        return filter.outputImage
+    }
+}
+
+func colorCubeWithColorSpace(dimension: Int, cube: NSData, colorSpace: CGColorSpaceRef) -> Filter {
+    return { image in
+        let parameters : CIParameters = [
+            "inputCubeDimension": dimension,
+            "inputCubeData": cube,
+            "inputColorSpace": colorSpace,
+            kCIInputImageKey: image]
+        let filter = CIFilter(name:"CIColorCubeWithColorSpace", withInputParameters:parameters)
+        return filter.outputImage
+    }
+}
+
+func colorInvert() -> Filter {
+    return { image in
+        let parameters : CIParameters = [kCIInputImageKey: image]
+        let filter = CIFilter(name:"CIColorInvert", withInputParameters:parameters)
         return filter.outputImage
     }
 }
