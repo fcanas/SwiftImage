@@ -11,6 +11,9 @@
 		E79B92041A3A96BC009D6989 /* SwiftImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79B91F81A3A96BC009D6989 /* SwiftImage.framework */; };
 		E79B920B1A3A96BC009D6989 /* SwiftImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B920A1A3A96BC009D6989 /* SwiftImageTests.swift */; };
 		E79B92151A3A97AB009D6989 /* CoreImageHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B92141A3A97AB009D6989 /* CoreImageHelpers.swift */; };
+		E7E207DE1A3E0F09000748BC /* BlurFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E207DD1A3E0F09000748BC /* BlurFilters.swift */; };
+		E7E207E01A3E0F29000748BC /* ColorAdjustmentFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E207DF1A3E0F29000748BC /* ColorAdjustmentFilters.swift */; };
+		E7E207E21A3E0F4D000748BC /* ColorEffectFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E207E11A3E0F4D000748BC /* ColorEffectFilters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,9 @@
 		E79B92091A3A96BC009D6989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E79B920A1A3A96BC009D6989 /* SwiftImageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftImageTests.swift; sourceTree = "<group>"; };
 		E79B92141A3A97AB009D6989 /* CoreImageHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreImageHelpers.swift; sourceTree = "<group>"; };
+		E7E207DD1A3E0F09000748BC /* BlurFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlurFilters.swift; sourceTree = "<group>"; };
+		E7E207DF1A3E0F29000748BC /* ColorAdjustmentFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAdjustmentFilters.swift; sourceTree = "<group>"; };
+		E7E207E11A3E0F4D000748BC /* ColorEffectFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorEffectFilters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +82,9 @@
 				E79B91FD1A3A96BC009D6989 /* SwiftImage.h */,
 				E79B91FB1A3A96BC009D6989 /* Supporting Files */,
 				E79B92141A3A97AB009D6989 /* CoreImageHelpers.swift */,
+				E7E207DF1A3E0F29000748BC /* ColorAdjustmentFilters.swift */,
+				E7E207DD1A3E0F09000748BC /* BlurFilters.swift */,
+				E7E207E11A3E0F4D000748BC /* ColorEffectFilters.swift */,
 			);
 			path = SwiftImage;
 			sourceTree = "<group>";
@@ -212,7 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7E207E21A3E0F4D000748BC /* ColorEffectFilters.swift in Sources */,
+				E7E207DE1A3E0F09000748BC /* BlurFilters.swift in Sources */,
 				E79B92151A3A97AB009D6989 /* CoreImageHelpers.swift in Sources */,
+				E7E207E01A3E0F29000748BC /* ColorAdjustmentFilters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +414,7 @@
 				E79B92101A3A96BC009D6989 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E79B92111A3A96BC009D6989 /* Build configuration list for PBXNativeTarget "SwiftImageTests" */ = {
 			isa = XCConfigurationList;
@@ -410,6 +423,7 @@
 				E79B92131A3A96BC009D6989 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
