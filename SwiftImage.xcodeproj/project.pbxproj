@@ -15,6 +15,7 @@
 		E7E207E01A3E0F29000748BC /* ColorAdjustmentFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E207DF1A3E0F29000748BC /* ColorAdjustmentFilters.swift */; };
 		E7E207E21A3E0F4D000748BC /* ColorEffectFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E207E11A3E0F4D000748BC /* ColorEffectFilters.swift */; };
 		E7E207E41A3E1B90000748BC /* CompositeFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E207E31A3E1B90000748BC /* CompositeFilters.swift */; };
+		E7E207E61A3E2EE0000748BC /* DistortionFilters.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7E207E51A3E2EE0000748BC /* DistortionFilters.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		E7E207DF1A3E0F29000748BC /* ColorAdjustmentFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorAdjustmentFilters.swift; sourceTree = "<group>"; };
 		E7E207E11A3E0F4D000748BC /* ColorEffectFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorEffectFilters.swift; sourceTree = "<group>"; };
 		E7E207E31A3E1B90000748BC /* CompositeFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompositeFilters.swift; sourceTree = "<group>"; };
+		E7E207E51A3E2EE0000748BC /* DistortionFilters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistortionFilters.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				E7E207DD1A3E0F09000748BC /* BlurFilters.swift */,
 				E7E207E11A3E0F4D000748BC /* ColorEffectFilters.swift */,
 				E7E207E31A3E1B90000748BC /* CompositeFilters.swift */,
+				E7E207E51A3E2EE0000748BC /* DistortionFilters.swift */,
 			);
 			path = SwiftImage;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7E207E61A3E2EE0000748BC /* DistortionFilters.swift in Sources */,
 				E7E207E41A3E1B90000748BC /* CompositeFilters.swift in Sources */,
 				E7E207E21A3E0F4D000748BC /* ColorEffectFilters.swift in Sources */,
 				E7E207DE1A3E0F09000748BC /* BlurFilters.swift in Sources */,
