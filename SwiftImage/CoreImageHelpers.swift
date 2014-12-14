@@ -25,7 +25,7 @@ func ~~> (filter1: Filter, filter2: Filter) -> Filter {
 
 // MARK: - CICategoryBlur
 
-/* Available on Mac OS X
+@availability(iOS, unavailable)
 func boxBlur(radius: Double) -> Filter {
     return { image in
         let parameters : CIParameters = [kCIInputRadiusKey: radius, kCIInputImageKey: image]
@@ -34,6 +34,7 @@ func boxBlur(radius: Double) -> Filter {
     }
 }
 
+@availability(iOS, unavailable)
 func discBlur(radius: Double) -> Filter {
     return { image in
         let parameters : CIParameters = [kCIInputRadiusKey: radius, kCIInputImageKey: image]
@@ -42,6 +43,7 @@ func discBlur(radius: Double) -> Filter {
     }
 }
 
+@availability(iOS, unavailable)
 func medianBlur(radius: Double) -> Filter {
     return { image in
         let parameters : CIParameters = [kCIInputImageKey: image]
@@ -50,6 +52,7 @@ func medianBlur(radius: Double) -> Filter {
     }
 }
 
+@availability(iOS, unavailable)
 func motionBlur(radius: Double, angle: Double) -> Filter {
     return { image in
         let parameters : CIParameters = [kCIInputRadiusKey: radius, kCIInputAngleKey: angle, kCIInputImageKey: image]
@@ -58,6 +61,7 @@ func motionBlur(radius: Double, angle: Double) -> Filter {
     }
 }
 
+@availability(iOS, unavailable)
 func noiseReduction(inputNoiseLevel: Double, inputSharpness: Double) -> Filter {
     return { image in
         let parameters : CIParameters = ["inputNoiseLevel": inputNoiseLevel, "inputSharpness": inputSharpness, kCIInputImageKey: image]
@@ -65,7 +69,6 @@ func noiseReduction(inputNoiseLevel: Double, inputSharpness: Double) -> Filter {
         return filter.outputImage
     }
 }
-*/
 
 func gaussianBlur(radius: Double) -> Filter {
     return { image in
