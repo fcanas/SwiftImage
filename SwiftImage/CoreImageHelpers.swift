@@ -23,6 +23,33 @@ func ~~> (filter1: Filter, filter2: Filter) -> Filter {
     return { img in filter2(filter1(img)) }
 }
 
+// MARK: - Abstract Filter Generators
+
+func singularFilterWithName(filterName: String) -> Filter {
+    return { image in
+        let parameters : CIParameters = [
+            kCIInputImageKey: image
+        ]
+        let filter = CIFilter(name:filterName, withInputParameters: parameters)
+        return filter.outputImage
+    }
+}
+
+public typealias Overlay = CIImage -> Filter
+
+func overlayWithName(filterName: String) -> Overlay {
+    return {overlay in
+        return { image in
+            let parameters : CIParameters = [
+                kCIInputBackgroundImageKey: image,
+                kCIInputImageKey: overlay
+            ]
+            let filter = CIFilter(name:filterName, withInputParameters: parameters)
+            return filter.outputImage
+        }
+    }
+}
+
 // MARK: - CIVector
 
 extension CIVector {

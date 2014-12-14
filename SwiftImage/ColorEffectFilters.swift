@@ -46,11 +46,7 @@ func colorCubeWithColorSpace(dimension: Int, cube: NSData, colorSpace: CGColorSp
 }
 
 func colorInvert() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIColorInvert", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return singularFilterWithName("CIColorInvert")
 }
 
 func colorMap(gradientImage: CIImage) -> Filter {
@@ -96,91 +92,45 @@ func falseColor(color0: CIColor, color1: CIColor) -> Filter {
 }
 
 func maskToAlpha() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIMaskToAlpha", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return singularFilterWithName("CIMaskToAlpha")
 }
 
 func maximumComponent() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIMaximumComponent", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return singularFilterWithName("CIMaximumComponent")
 }
 
 func minimumComponent() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIMinimumComponent", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return singularFilterWithName("CIMinimumComponent")
 }
 
 func photoEffectChrome() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIPhotoEffectChrome", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return singularFilterWithName("CIPhotoEffectChrome")
 }
 
 func photoEffectFade() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIPhotoEffectFade", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return singularFilterWithName("CIPhotoEffectFade")
 }
 
 func photoEffectInstant() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIPhotoEffectInstant", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return singularFilterWithName("CIPhotoEffectInstant")
 }
 
 func photoEffectMono() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIPhotoEffectMono", withInputParameters:parameters)
-        return filter.outputImage
-    }
-}
+    return singularFilterWithName("CIPhotoEffectMono")}
 
 func photoEffectNoir() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIPhotoEffectNoir", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return singularFilterWithName("CIPhotoEffectNoir")
 }
 
 func photoEffectProcess() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIPhotoEffectProcess", withInputParameters:parameters)
-        return filter.outputImage
-    }
-}
+    return singularFilterWithName("CIPhotoEffectProcess")}
 
 func photoEffectTonal() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIPhotoEffectTonal", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return singularFilterWithName("CIPhotoEffectTonal")
 }
 
 func photoEffectTransfer() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIPhotoEffectTransfer", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return singularFilterWithName("CIPhotoEffectTransfer")
 }
 
 func sepiaTone(intensity: Float) -> Filter {

@@ -8,21 +8,6 @@
 
 import Foundation
 
-public typealias Overlay = CIImage -> Filter
-
-func overlayWithName(filterName: String) -> Overlay {
-    return {overlay in
-        return { image in
-            let parameters : CIParameters = [
-                kCIInputBackgroundImageKey: image,
-                kCIInputImageKey: overlay
-            ]
-            let filter = CIFilter(name:filterName, withInputParameters: parameters)
-            return filter.outputImage
-        }
-    }
-}
-
 func additionCompositing(overlay: CIImage) -> Filter {
     return overlayWithName("CIAdditionCompositing")(overlay)
 }
