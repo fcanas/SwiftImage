@@ -43,17 +43,6 @@ func colorGenerator(color: UIColor) -> Filter {
     }
 }
 
-func sourceOverCompositing(overlay: CIImage) -> Filter {
-    return { image in
-        let parameters : CIParameters = [
-            kCIInputBackgroundImageKey: image,
-            kCIInputImageKey: overlay
-        ]
-        let filter = CIFilter(name:"CISourceOverCompositing", withInputParameters: parameters)
-        return filter.outputImage.imageByCroppingToRect(image.extent())
-    }
-}
-
 func colorOverlay(color: UIColor) -> Filter {
     return { image in
         let overlay = colorGenerator(color)(image)
