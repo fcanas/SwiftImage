@@ -84,21 +84,9 @@ func hueAdjust(angle: Double) -> Filter {
     }
 }
 
-func linearToSRGBToneCurve() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CILinearToSRGBToneCurve", withInputParameters:parameters)
-        return filter.outputImage
-    }
-}
+func linearToSRGBToneCurve() -> Filter {return singularFilter("CILinearToSRGBToneCurve")}
 
-func SRGBToneCurveToLinear() -> Filter {
-    return { image in
-        let parameters : CIParameters = [kCIInputImageKey: image]
-        let filter = CIFilter(name:"CISRGBToneCurveToLinear", withInputParameters:parameters)
-        return filter.outputImage
-    }
-}
+func SRGBToneCurveToLinear() -> Filter {return singularFilter("CISRGBToneCurveToLinear")}
 
 func temperatureAndTint(neutral: CIVector, targetNeutral: CIVector) -> Filter {
     return { image in

@@ -45,9 +45,7 @@ func colorCubeWithColorSpace(dimension: Int, cube: NSData, colorSpace: CGColorSp
     }
 }
 
-func colorInvert() -> Filter {
-    return singularFilter("CIColorInvert")
-}
+func colorInvert() -> Filter {return singularFilter("CIColorInvert")}
 
 func colorMap(gradientImage: CIImage) -> Filter {
     return { image in
@@ -91,47 +89,27 @@ func falseColor(color0: UIColor, color1: UIColor) -> Filter {
     }
 }
 
-func maskToAlpha() -> Filter {
-    return singularFilter("CIMaskToAlpha")
-}
+func maskToAlpha() -> Filter {return singularFilter("CIMaskToAlpha")}
 
-func maximumComponent() -> Filter {
-    return singularFilter("CIMaximumComponent")
-}
+func maximumComponent() -> Filter {return singularFilter("CIMaximumComponent")}
 
-func minimumComponent() -> Filter {
-    return singularFilter("CIMinimumComponent")
-}
+func minimumComponent() -> Filter {return singularFilter("CIMinimumComponent")}
 
-func photoEffectChrome() -> Filter {
-    return singularFilter("CIPhotoEffectChrome")
-}
+func photoEffectChrome() -> Filter {return singularFilter("CIPhotoEffectChrome")}
 
-func photoEffectFade() -> Filter {
-    return singularFilter("CIPhotoEffectFade")
-}
+func photoEffectFade() -> Filter {return singularFilter("CIPhotoEffectFade")}
 
-func photoEffectInstant() -> Filter {
-    return singularFilter("CIPhotoEffectInstant")
-}
+func photoEffectInstant() -> Filter {return singularFilter("CIPhotoEffectInstant")}
 
-func photoEffectMono() -> Filter {
-    return singularFilter("CIPhotoEffectMono")}
+func photoEffectMono() -> Filter {return singularFilter("CIPhotoEffectMono")}
 
-func photoEffectNoir() -> Filter {
-    return singularFilter("CIPhotoEffectNoir")
-}
+func photoEffectNoir() -> Filter {return singularFilter("CIPhotoEffectNoir")}
 
-func photoEffectProcess() -> Filter {
-    return singularFilter("CIPhotoEffectProcess")}
+func photoEffectProcess() -> Filter {return singularFilter("CIPhotoEffectProcess")}
 
-func photoEffectTonal() -> Filter {
-    return singularFilter("CIPhotoEffectTonal")
-}
+func photoEffectTonal() -> Filter {return singularFilter("CIPhotoEffectTonal")}
 
-func photoEffectTransfer() -> Filter {
-    return singularFilter("CIPhotoEffectTransfer")
-}
+func photoEffectTransfer() -> Filter {return singularFilter("CIPhotoEffectTransfer")}
 
 func sepiaTone(intensity: Float) -> Filter {
     return { image in
