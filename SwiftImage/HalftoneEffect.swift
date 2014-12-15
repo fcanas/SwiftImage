@@ -8,7 +8,7 @@
 
 import Foundation
 
-func circularScreen(center: CGPoint, width: Float, sharpness: Float) -> Filter {
+public func circularScreen(center: CGPoint, width: Float, sharpness: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputWidthKey:width,
@@ -20,7 +20,7 @@ func circularScreen(center: CGPoint, width: Float, sharpness: Float) -> Filter {
     }
 }
 
-func CMYKHalftone(center: CGPoint, width: Float, angle: Float, sharpness: Float, grayComponentReplacement: Float, underColorRemoval: Float) -> Filter {
+public func CMYKHalftone(center: CGPoint, width: Float, angle: Float, sharpness: Float, grayComponentReplacement: Float, underColorRemoval: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputWidthKey:width,
@@ -35,15 +35,15 @@ func CMYKHalftone(center: CGPoint, width: Float, angle: Float, sharpness: Float,
     }
 }
 
-func dotScreen(center: CGPoint, width: Float, angle: Float, sharpness: Float) -> Filter {
+public func dotScreen(center: CGPoint, width: Float, angle: Float, sharpness: Float) -> Filter {
     return screen("CIDotScreen")(center:center, width:width, angle:angle, sharpness:sharpness)
 }
 
-func hatchedScreen(center: CGPoint, width: Float, angle: Float, sharpness: Float) -> Filter {
+public func hatchedScreen(center: CGPoint, width: Float, angle: Float, sharpness: Float) -> Filter {
     return screen("CIHatchedScreen")(center:center, width:width, angle:angle, sharpness:sharpness)
 }
 
-func lineScreen(center: CGPoint, width: Float, angle: Float, sharpness: Float) -> Filter {
+public func lineScreen(center: CGPoint, width: Float, angle: Float, sharpness: Float) -> Filter {
     return screen("CILineScreen")(center:center, width:width, angle:angle, sharpness:sharpness)
 }
 

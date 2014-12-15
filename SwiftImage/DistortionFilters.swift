@@ -8,7 +8,7 @@
 
 import Foundation
 
-func bumpDistortion(center: CGPoint, radius: Float, scale: Float) -> Filter {
+public func bumpDistortion(center: CGPoint, radius: Float, scale: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputRadiusKey:radius,
@@ -20,7 +20,7 @@ func bumpDistortion(center: CGPoint, radius: Float, scale: Float) -> Filter {
     }
 }
 
-func bumpDistortionLinear(center: CGPoint, radius: Float, angle:Float, scale: Float) -> Filter {
+public func bumpDistortionLinear(center: CGPoint, radius: Float, angle:Float, scale: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputRadiusKey:radius,
@@ -33,7 +33,7 @@ func bumpDistortionLinear(center: CGPoint, radius: Float, angle:Float, scale: Fl
     }
 }
 
-func circleSplashDistortion(center: CGPoint, radius: Float) -> Filter {
+public func circleSplashDistortion(center: CGPoint, radius: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputRadiusKey:radius,
@@ -45,7 +45,7 @@ func circleSplashDistortion(center: CGPoint, radius: Float) -> Filter {
 }
 
 
-func circularWrap(center: CGPoint, radius: Float, angle:Float) -> Filter {
+public func circularWrap(center: CGPoint, radius: Float, angle:Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputRadiusKey:radius,
@@ -57,7 +57,7 @@ func circularWrap(center: CGPoint, radius: Float, angle:Float) -> Filter {
     }
 }
 
-func droste(insertionPoint0: CGPoint, insertionPoint1: CGPoint, strands: Float, periodicity :Float, rotation :Float, zoom :Float) -> Filter {
+public func droste(insertionPoint0: CGPoint, insertionPoint1: CGPoint, strands: Float, periodicity :Float, rotation :Float, zoom :Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             "inputInsertionPoint0":CIVector(CGPoint: insertionPoint0),
@@ -72,7 +72,7 @@ func droste(insertionPoint0: CGPoint, insertionPoint1: CGPoint, strands: Float, 
     }
 }
 
-func displacementDistortion(displacementImage: CIImage, scale :Float) -> Filter {
+public func displacementDistortion(displacementImage: CIImage, scale :Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             "inputDisplacementImage":displacementImage,
@@ -83,7 +83,7 @@ func displacementDistortion(displacementImage: CIImage, scale :Float) -> Filter 
     }
 }
 
-func displacementDistortion(texture: CIImage, center: CGPoint, scale :Float) -> Filter {
+public func displacementDistortion(texture: CIImage, center: CGPoint, scale :Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             "inputTexture":texture,
@@ -95,7 +95,7 @@ func displacementDistortion(texture: CIImage, center: CGPoint, scale :Float) -> 
     }
 }
 
-func glassLozenge(point0: CGPoint, point1: CGPoint, radius :Float, refraction :Float) -> Filter {
+public func glassLozenge(point0: CGPoint, point1: CGPoint, radius :Float, refraction :Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             "inputPoint0":CIVector(CGPoint:point0),
@@ -108,7 +108,7 @@ func glassLozenge(point0: CGPoint, point1: CGPoint, radius :Float, refraction :F
     }
 }
 
-func holeDistortion(center: CGPoint, radius: Float) -> Filter {
+public func holeDistortion(center: CGPoint, radius: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputRadiusKey:radius,
@@ -119,7 +119,7 @@ func holeDistortion(center: CGPoint, radius: Float) -> Filter {
     }
 }
 
-func lightTunnel(center: CGPoint, radius: Float, rotation:Float) -> Filter {
+public func lightTunnel(center: CGPoint, radius: Float, rotation:Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputRadiusKey:radius,
@@ -131,7 +131,7 @@ func lightTunnel(center: CGPoint, radius: Float, rotation:Float) -> Filter {
     }
 }
 
-func pinchDistortion(center: CGPoint, radius: Float, scale:Float) -> Filter {
+public func pinchDistortion(center: CGPoint, radius: Float, scale:Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputRadiusKey:radius,
@@ -155,7 +155,7 @@ func stretchCrop(size: CGSize, cropAmount: Float, centerStretchAmount: Float) ->
     }
 }
 
-func torusLensDistortion(center: CGPoint, radius: Float, width: Float, refraction: Float) -> Filter {
+public func torusLensDistortion(center: CGPoint, radius: Float, width: Float, refraction: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputCenterKey:CIVector(CGPoint:center),
@@ -167,7 +167,7 @@ func torusLensDistortion(center: CGPoint, radius: Float, width: Float, refractio
     }
 }
 
-func twirlDistortion(center: CGPoint, radius: Float, angle:Float) -> Filter {
+public func twirlDistortion(center: CGPoint, radius: Float, angle:Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputRadiusKey:radius,
@@ -179,7 +179,7 @@ func twirlDistortion(center: CGPoint, radius: Float, angle:Float) -> Filter {
     }
 }
 
-func vortexDistortion(center: CGPoint, radius: Float, angle:Float) -> Filter {
+public func vortexDistortion(center: CGPoint, radius: Float, angle:Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputRadiusKey:radius,

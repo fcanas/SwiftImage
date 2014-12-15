@@ -8,7 +8,7 @@
 
 import Foundation
 
-func gaussianGradient(color0: UIColor, color1: UIColor, radius: Float) -> Filter {
+public func gaussianGradient(color0: UIColor, color1: UIColor, radius: Float) -> Filter {
     return { _ in
         let parameters = [
             "inputColor0": CIColor(CGColor: color0.CGColor),
@@ -20,7 +20,7 @@ func gaussianGradient(color0: UIColor, color1: UIColor, radius: Float) -> Filter
     }
 }
 
-func linearGradient(color0: UIColor, color1: UIColor, point0: CGPoint, point1: CGPoint) -> Filter {
+public func linearGradient(color0: UIColor, color1: UIColor, point0: CGPoint, point1: CGPoint) -> Filter {
     return { _ in
         let parameters = [
             "inputColor0": CIColor(CGColor: color0.CGColor),
@@ -33,7 +33,7 @@ func linearGradient(color0: UIColor, color1: UIColor, point0: CGPoint, point1: C
     }
 }
 
-func radialGradient(color0: UIColor, color1: UIColor, radius0: Float, radius1: Float, center: CGPoint) -> Filter {
+public func radialGradient(color0: UIColor, color1: UIColor, radius0: Float, radius1: Float, center: CGPoint) -> Filter {
     return { _ in
         let parameters = [
             "inputColor0": CIColor(CGColor: color0.CGColor),
@@ -47,7 +47,7 @@ func radialGradient(color0: UIColor, color1: UIColor, radius0: Float, radius1: F
     }
 }
 
-func smoothLinearGradient(color0: UIColor, color1: UIColor, point0: CGPoint, point1: CGPoint) -> Filter {
+public func smoothLinearGradient(color0: UIColor, color1: UIColor, point0: CGPoint, point1: CGPoint) -> Filter {
     return { _ in
         let parameters = [
             "inputColor0": CIColor(CGColor: color0.CGColor),

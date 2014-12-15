@@ -19,7 +19,7 @@ public typealias CIParameters = Dictionary<String, AnyObject>
 
 infix operator ~~> { associativity left }
 
-func ~~> (filter1: Filter, filter2: Filter) -> Filter {
+public func ~~> (filter1: Filter, filter2: Filter) -> Filter {
     return { img in filter2(filter1(img)) }
 }
 
@@ -52,7 +52,7 @@ func overlayFilter(filterName: String) -> Overlay {
 
 // MARK: - CIVector
 
-extension CIVector {
+public extension CIVector {
     convenience init(color: UIColor){
         var r :CGFloat = 0
         var g :CGFloat = 0

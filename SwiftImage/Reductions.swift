@@ -20,11 +20,9 @@ private func extentFilter(name: String) -> (extent: CGRect) -> Filter {
     }
 }
 
-func areaAverage(extent: CGRect) -> Filter {
-    return extentFilter("CIAreaAverage")(extent:extent)
-}
+public func areaAverage(extent: CGRect) -> Filter { return extentFilter("CIAreaAverage")(extent:extent)}
 
-func areaHistogram(extent: CGRect, count: Int, scale: Float) -> Filter {
+public func areaHistogram(extent: CGRect, count: Int, scale: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             "inputExtent":CIVector(CGRect:extent),
@@ -37,11 +35,11 @@ func areaHistogram(extent: CGRect, count: Int, scale: Float) -> Filter {
     }
 }
 
-func rowAverage(extent: CGRect) -> Filter {return extentFilter("CIRowAverage")(extent:extent)}
+public func rowAverage(extent: CGRect) -> Filter {return extentFilter("CIRowAverage")(extent:extent)}
 
-func columnAverage(extent: CGRect) -> Filter {return extentFilter("CIColumnAverage")(extent:extent)}
+public func columnAverage(extent: CGRect) -> Filter {return extentFilter("CIColumnAverage")(extent:extent)}
 
-func histogramDisplayFilter(height: Float, highLimit: Float, lowLimit: Float) -> Filter {
+public func histogramDisplayFilter(height: Float, highLimit: Float, lowLimit: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             "inputHighLimit":highLimit,
@@ -54,11 +52,11 @@ func histogramDisplayFilter(height: Float, highLimit: Float, lowLimit: Float) ->
     }
 }
 
-func areaMaximum(extent: CGRect) -> Filter {return extentFilter("CIAreaMaximum")(extent:extent)}
+public func areaMaximum(extent: CGRect) -> Filter {return extentFilter("CIAreaMaximum")(extent:extent)}
 
-func areaMinimum(extent: CGRect) -> Filter {return extentFilter("CIAreaMinimum")(extent:extent)}
+public func areaMinimum(extent: CGRect) -> Filter {return extentFilter("CIAreaMinimum")(extent:extent)}
 
-func areaMaximumAlpha(extent: CGRect) -> Filter {return extentFilter("CIAreaMaximumAlpha")(extent:extent)}
+public func areaMaximumAlpha(extent: CGRect) -> Filter {return extentFilter("CIAreaMaximumAlpha")(extent:extent)}
 
-func areaMinimumAlpha(extent: CGRect) -> Filter {return extentFilter("CIAreaMinimumAlpha")(extent:extent)}
+public func areaMinimumAlpha(extent: CGRect) -> Filter {return extentFilter("CIAreaMinimumAlpha")(extent:extent)}
 

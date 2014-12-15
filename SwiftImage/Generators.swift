@@ -8,14 +8,14 @@
 
 import Foundation
 
-func colorGenerator(color: UIColor) -> Filter {
+public func colorGenerator(color: UIColor) -> Filter {
     return { _ in
         let filter = CIFilter(name:"CIConstantColorGenerator", withInputParameters: [kCIInputColorKey: CIColor(color: color)!])
         return filter.outputImage
     }
 }
 
-func checkerboardGenerator(color0: UIColor, color1: UIColor, width: Float, sharpness: Float) -> Filter {
+public func checkerboardGenerator(color0: UIColor, color1: UIColor, width: Float, sharpness: Float) -> Filter {
     return { _ in
         let parameters = [
             "inputColor0": CIColor(CGColor: color0.CGColor),
@@ -28,7 +28,7 @@ func checkerboardGenerator(color0: UIColor, color1: UIColor, width: Float, sharp
     }
 }
 
-func lenticularHalogGenerator(center: CGPoint, color: UIColor, haloRadius: Float, haloWidth: Float, haloOverlap: Float, striationStrength: Float, striationContrast: Float, time: Float) -> Filter {
+public func lenticularHalogGenerator(center: CGPoint, color: UIColor, haloRadius: Float, haloWidth: Float, haloOverlap: Float, striationStrength: Float, striationContrast: Float, time: Float) -> Filter {
     return { _ in
         let parameters = [
             kCIInputColorKey: CIColor(color: color)!,
@@ -43,14 +43,14 @@ func lenticularHalogGenerator(center: CGPoint, color: UIColor, haloRadius: Float
     }
 }
 
-enum CICorrectionLevel {
+public enum CICorrectionLevel {
     case Low
     case Medium
     case Q
     case High
 }
 
-func QRCodeGenerator(message: String, correctionLevel: CICorrectionLevel) -> Filter {
+public func QRCodeGenerator(message: String, correctionLevel: CICorrectionLevel) -> Filter {
     return { _ in
         var correctionLevelString :String
         switch correctionLevel {
@@ -71,11 +71,9 @@ func QRCodeGenerator(message: String, correctionLevel: CICorrectionLevel) -> Fil
     }
 }
 
-func randomGenerator() -> Filter {
-    return singularFilter("CIRandomGenerator")
-}
+public func randomGenerator() -> Filter { return singularFilter("CIRandomGenerator") }
 
-func starShineGenerator(center: CGPoint, color: UIColor, radius: Float, crossScale: Float, crossAngle: Float, crossOpacity: Float, crossWidth: Float, epsilon: Float) -> Filter {
+public func starShineGenerator(center: CGPoint, color: UIColor, radius: Float, crossScale: Float, crossAngle: Float, crossOpacity: Float, crossWidth: Float, epsilon: Float) -> Filter {
     return { _ in
         let parameters = [
             kCIInputCenterKey: CIVector(CGPoint: center),
@@ -92,7 +90,7 @@ func starShineGenerator(center: CGPoint, color: UIColor, radius: Float, crossSca
     }
 }
 
-func stripesGenerator(color0: UIColor, color1: UIColor, width: Float, sharpness: Float) -> Filter {
+public func stripesGenerator(color0: UIColor, color1: UIColor, width: Float, sharpness: Float) -> Filter {
     return { _ in
         let parameters = [
             "inputColor0": CIColor(CGColor: color0.CGColor),
@@ -105,7 +103,7 @@ func stripesGenerator(color0: UIColor, color1: UIColor, width: Float, sharpness:
     }
 }
 
-func sunbeamGenerator(center: CGPoint, color: UIColor, sunRadius: Float, maxStriationRadius: Float, striationStrength: Float, striationContrast: Float, time: Float) -> Filter {
+public func sunbeamGenerator(center: CGPoint, color: UIColor, sunRadius: Float, maxStriationRadius: Float, striationStrength: Float, striationContrast: Float, time: Float) -> Filter {
     return { _ in
         let parameters = [
             kCIInputColorKey: CIColor(CGColor:color.CGColor),

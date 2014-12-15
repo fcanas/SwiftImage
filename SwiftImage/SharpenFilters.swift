@@ -8,7 +8,7 @@
 
 import Foundation
 
-func sharpenLuminance(sharpness: Float) -> Filter {
+public func sharpenLuminance(sharpness: Float) -> Filter {
     return { image in
         let parameters = [
             kCIInputImageKey:image,
@@ -18,7 +18,7 @@ func sharpenLuminance(sharpness: Float) -> Filter {
     }
 }
 
-func unsharpMask(radius: Float, intensity: Float) -> Filter {
+public func unsharpMask(radius: Float, intensity: Float) -> Filter {
     return { image in
         let parameters = [
             kCIInputImageKey:image,
