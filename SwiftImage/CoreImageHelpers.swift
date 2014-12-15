@@ -25,7 +25,7 @@ func ~~> (filter1: Filter, filter2: Filter) -> Filter {
 
 // MARK: - Abstract Filter Generators
 
-func singularFilterWithName(filterName: String) -> Filter {
+func singularFilter(filterName: String) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputImageKey: image
@@ -60,13 +60,6 @@ extension CIVector {
         var a :CGFloat = 0
         color.getRed(&r, green: &g, blue: &b, alpha: &a)
         self.init(x: r, y: g, z: b, w: a)
-    }
-}
-
-func colorGenerator(color: UIColor) -> Filter {
-    return { _ in
-        let filter = CIFilter(name:"CIConstantColorGenerator", withInputParameters: [kCIInputColorKey: CIColor(color: color)!])
-        return filter.outputImage
     }
 }
 

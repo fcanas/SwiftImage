@@ -46,7 +46,7 @@ func colorCubeWithColorSpace(dimension: Int, cube: NSData, colorSpace: CGColorSp
 }
 
 func colorInvert() -> Filter {
-    return singularFilterWithName("CIColorInvert")
+    return singularFilter("CIColorInvert")
 }
 
 func colorMap(gradientImage: CIImage) -> Filter {
@@ -59,10 +59,10 @@ func colorMap(gradientImage: CIImage) -> Filter {
     }
 }
 
-func colorMonochrome(color: CIColor, intensity: Float) -> Filter {
+func colorMonochrome(color: UIColor, intensity: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
-            kCIInputColorKey:color,
+            kCIInputColorKey:CIColor(CGColor:color.CGColor),
             kCIInputIntensityKey:intensity,
             kCIInputImageKey: image]
         let filter = CIFilter(name:"CIColorMonochrome", withInputParameters:parameters)
@@ -80,11 +80,11 @@ func colorPosterize(levels: Float) -> Filter {
     }
 }
 
-func falseColor(color0: CIColor, color1: CIColor) -> Filter {
+func falseColor(color0: UIColor, color1: UIColor) -> Filter {
     return { image in
         let parameters : CIParameters = [
-            "inputColor0":color0,
-            "inputColor1":color1,
+            "inputColor0":CIColor(CGColor:color0.CGColor),
+            "inputColor1":CIColor(CGColor:color1.CGColor),
             kCIInputImageKey: image]
         let filter = CIFilter(name:"CIFalseColor", withInputParameters:parameters)
         return filter.outputImage
@@ -92,45 +92,45 @@ func falseColor(color0: CIColor, color1: CIColor) -> Filter {
 }
 
 func maskToAlpha() -> Filter {
-    return singularFilterWithName("CIMaskToAlpha")
+    return singularFilter("CIMaskToAlpha")
 }
 
 func maximumComponent() -> Filter {
-    return singularFilterWithName("CIMaximumComponent")
+    return singularFilter("CIMaximumComponent")
 }
 
 func minimumComponent() -> Filter {
-    return singularFilterWithName("CIMinimumComponent")
+    return singularFilter("CIMinimumComponent")
 }
 
 func photoEffectChrome() -> Filter {
-    return singularFilterWithName("CIPhotoEffectChrome")
+    return singularFilter("CIPhotoEffectChrome")
 }
 
 func photoEffectFade() -> Filter {
-    return singularFilterWithName("CIPhotoEffectFade")
+    return singularFilter("CIPhotoEffectFade")
 }
 
 func photoEffectInstant() -> Filter {
-    return singularFilterWithName("CIPhotoEffectInstant")
+    return singularFilter("CIPhotoEffectInstant")
 }
 
 func photoEffectMono() -> Filter {
-    return singularFilterWithName("CIPhotoEffectMono")}
+    return singularFilter("CIPhotoEffectMono")}
 
 func photoEffectNoir() -> Filter {
-    return singularFilterWithName("CIPhotoEffectNoir")
+    return singularFilter("CIPhotoEffectNoir")
 }
 
 func photoEffectProcess() -> Filter {
-    return singularFilterWithName("CIPhotoEffectProcess")}
+    return singularFilter("CIPhotoEffectProcess")}
 
 func photoEffectTonal() -> Filter {
-    return singularFilterWithName("CIPhotoEffectTonal")
+    return singularFilter("CIPhotoEffectTonal")
 }
 
 func photoEffectTransfer() -> Filter {
-    return singularFilterWithName("CIPhotoEffectTransfer")
+    return singularFilter("CIPhotoEffectTransfer")
 }
 
 func sepiaTone(intensity: Float) -> Filter {
@@ -165,6 +165,4 @@ func vignetteEffect(center: CGPoint, radius: Float, intensity: Float) -> Filter 
         return filter.outputImage
     }
 }
-
-
 
