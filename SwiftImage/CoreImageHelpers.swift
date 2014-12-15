@@ -37,7 +37,7 @@ func singularFilter(filterName: String) -> Filter {
 
 public typealias Overlay = CIImage -> Filter
 
-func overlayWithName(filterName: String) -> Overlay {
+func overlayFilter(filterName: String) -> Overlay {
     return {overlay in
         return { image in
             let parameters : CIParameters = [
