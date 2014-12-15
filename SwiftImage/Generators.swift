@@ -110,7 +110,7 @@ func sunbeamGenerator(center: CGPoint, color: UIColor, sunRadius: Float, maxStri
         let parameters = [
             kCIInputColorKey: CIColor(CGColor:color.CGColor),
             kCIInputCenterKey: CIVector(CGPoint: center),
-            kCIInputRadiusKey: radius,
+            "inputSunRadius": sunRadius,
             "inputMaxStriationRadius": maxStriationRadius,
             "inputStriationStrength": striationStrength,
             "inputStriationContrast": striationContrast,
