@@ -31,3 +31,7 @@ public func blendWithMask(overlay: CIImage, maskImage: CIImage) -> Filter {
         return filter.outputImage
     }
 }
+
+public func bloom(radius: Float, intensity: Float) -> Filter {
+    return radiusIntensityFilter("CIBloom")(radius: radius, intensity: intensity)
+}

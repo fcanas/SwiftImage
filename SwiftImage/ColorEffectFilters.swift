@@ -122,14 +122,7 @@ public func sepiaTone(intensity: Float) -> Filter {
 }
 
 public func vignette(radius: Float, intensity: Float) -> Filter {
-    return { image in
-        let parameters : CIParameters = [
-            kCIInputRadiusKey:radius,
-            kCIInputIntensityKey:intensity,
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIVignette", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return radiusIntensityFilter("CIVignette")(radius: radius, intensity: intensity)
 }
 
 func vignetteEffect(center: CGPoint, radius: Float, intensity: Float) -> Filter {

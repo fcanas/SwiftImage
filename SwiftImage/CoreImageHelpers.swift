@@ -50,6 +50,19 @@ func overlayFilter(filterName: String) -> Overlay {
     }
 }
 
+func radiusIntensityFilter(name: String) -> (radius: Float, intensity :Float) -> Filter {
+    return { radius, intensity in
+        return { image in
+            let parameters : CIParameters = [
+                kCIInputRadiusKey:radius,
+                kCIInputIntensityKey:intensity,
+                kCIInputImageKey: image]
+            let filter = CIFilter(name:"CIVignette", withInputParameters:parameters)
+            return filter.outputImage
+        }
+    }
+}
+
 // MARK: - CIVector
 
 public extension CIVector {
