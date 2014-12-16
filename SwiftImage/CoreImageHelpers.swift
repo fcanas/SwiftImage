@@ -57,7 +57,21 @@ func radiusIntensityFilter(name: String) -> (radius: Float, intensity :Float) ->
                 kCIInputRadiusKey:radius,
                 kCIInputIntensityKey:intensity,
                 kCIInputImageKey: image]
-            let filter = CIFilter(name:"CIVignette", withInputParameters:parameters)
+            let filter = CIFilter(name:name, withInputParameters:parameters)
+            return filter.outputImage
+        }
+    }
+}
+
+func convolutionFixedFilter(name: String) -> (weights: CIVector, bias :Float) -> Filter {
+    return { weights, bias in
+        return { image in
+            let parameters : CIParameters = [
+                "inputWeights": weights,
+                "inputBias": bias,
+                kCIInputImageKey: image
+            ]
+            let filter = CIFilter(name:name, withInputParameters: parameters)
             return filter.outputImage
         }
     }

@@ -35,3 +35,25 @@ public func blendWithMask(overlay: CIImage, maskImage: CIImage) -> Filter {
 public func bloom(radius: Float, intensity: Float) -> Filter {
     return radiusIntensityFilter("CIBloom")(radius: radius, intensity: intensity)
 }
+
+public func comicEffect() -> Filter { return singularFilter("CIComicEffect") }
+
+public func convolution3X3(weights: CIVector, bias: Float) -> Filter {
+    return convolutionFixedFilter("CIConvolution3X3")(weights: weights, bias: bias)
+}
+
+public func convolution5X5(weights: CIVector, bias: Float) -> Filter {
+    return convolutionFixedFilter("CIConvolution5X5")(weights: weights, bias: bias)
+}
+
+public func convolution7X7(weights: CIVector, bias: Float) -> Filter {
+    return convolutionFixedFilter("CIConvolution7X7")(weights: weights, bias: bias)
+}
+
+public func convolution9Vertical(weights: CIVector, bias: Float) -> Filter {
+    return convolutionFixedFilter("CIConvolution9Vertical")(weights: weights, bias: bias)
+}
+
+public func convolution9Horizontal(weights: CIVector, bias: Float) -> Filter {
+    return convolutionFixedFilter("CIConvolution9Horizontal")(weights: weights, bias: bias)
+}
