@@ -50,12 +50,35 @@ func overlayFilter(filterName: String) -> Overlay {
     }
 }
 
+func radiusFilter(name: String) -> (radius: Float) -> Filter {
+    return { radius in
+        return { image in
+            let parameters : CIParameters = [kCIInputRadiusKey: radius, kCIInputImageKey: image]
+            let filter = CIFilter(name:name, withInputParameters:parameters)
+            return filter.outputImage
+        }
+    }
+}
+
 func radiusIntensityFilter(name: String) -> (radius: Float, intensity :Float) -> Filter {
     return { radius, intensity in
         return { image in
             let parameters : CIParameters = [
                 kCIInputRadiusKey:radius,
                 kCIInputIntensityKey:intensity,
+                kCIInputImageKey: image]
+            let filter = CIFilter(name:name, withInputParameters:parameters)
+            return filter.outputImage
+        }
+    }
+}
+
+func centerRadiusFilter(name: String) -> (center :CGPoint, radius: Float) -> Filter {
+    return { center, radius in
+        return { image in
+            let parameters : CIParameters = [
+                kCIInputRadiusKey:radius,
+                kCIInputCenterKey:CIVector(CGPoint:center),
                 kCIInputImageKey: image]
             let filter = CIFilter(name:name, withInputParameters:parameters)
             return filter.outputImage

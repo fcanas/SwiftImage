@@ -34,16 +34,8 @@ public func bumpDistortionLinear(center: CGPoint, radius: Float, angle:Float, sc
 }
 
 public func circleSplashDistortion(center: CGPoint, radius: Float) -> Filter {
-    return { image in
-        let parameters : CIParameters = [
-            kCIInputRadiusKey:radius,
-            kCIInputCenterKey:CIVector(CGPoint:center),
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CICircleSplashDistortion", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return centerRadiusFilter("CICircleSplashDistortion")(center:center, radius:radius)
 }
-
 
 public func circularWrap(center: CGPoint, radius: Float, angle:Float) -> Filter {
     return { image in
@@ -109,14 +101,7 @@ public func glassLozenge(point0: CGPoint, point1: CGPoint, radius :Float, refrac
 }
 
 public func holeDistortion(center: CGPoint, radius: Float) -> Filter {
-    return { image in
-        let parameters : CIParameters = [
-            kCIInputRadiusKey:radius,
-            kCIInputCenterKey:CIVector(CGPoint:center),
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIHoleDistortion", withInputParameters:parameters)
-        return filter.outputImage
-    }
+    return centerRadiusFilter("CIHoleDistortion")(center:center, radius:radius)
 }
 
 public func lightTunnel(center: CGPoint, radius: Float, rotation:Float) -> Filter {
