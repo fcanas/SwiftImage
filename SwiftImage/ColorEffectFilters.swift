@@ -139,7 +139,7 @@ func vignetteEffect(center: CGPoint, radius: Float, intensity: Float) -> Filter 
             kCIInputRadiusKey:radius,
             kCIInputIntensityKey:intensity,
             kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIVignette", withInputParameters:parameters)
+        let filter = CIFilter(name:"CIVignetteEffect", withInputParameters:parameters)
         return filter.outputImage
     }
 }
