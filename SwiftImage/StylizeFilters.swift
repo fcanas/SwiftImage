@@ -167,3 +167,47 @@ public func shadedMaterial(shadingImage:CIImage, scale: Float) -> Filter {
         return filter.outputImage
     }
 }
+
+public func spotColor(
+    centerColor1: CIColor, replacementColor1: CIColor, closeness1: Float, contrast1: Float,
+    centerColor2: CIColor, replacementColor2: CIColor, closeness2: Float, contrast2: Float,
+    centerColor3: CIColor, replacementColor3: CIColor, closeness3: Float, contrast3: Float
+    ) -> Filter {
+    return { image in
+        let parameters : CIParameters = [
+            "inputCenterColor1":centerColor1,
+            "inputReplacementColor1":replacementColor1,
+            "inputCloseness1":closeness1,
+            "inputContrast1":contrast1,
+            
+            "inputCenterColor2":centerColor2,
+            "inputReplacementColor2":replacementColor2,
+            "inputCloseness1":closeness2,
+            "inputContrast1":contrast2,
+            
+            "inputCenterColor3":centerColor3,
+            "inputReplacementColor3":replacementColor3,
+            "inputCloseness1":closeness3,
+            "inputContrast1":contrast3,
+            
+            kCIInputImageKey: image
+        ]
+        let filter = CIFilter(name:"CISpotColor", withInputParameters: parameters)
+        return filter.outputImage
+    }
+}
+
+public func spotLight(lightPosition:CIVector, lightPointsAt:CIVector, brightness:Float, concentration:Float, color:CIColor) -> Filter {
+    return { image in
+        let parameters : CIParameters = [
+            "inputLightPosition":lightPosition,
+            "inputLightPointsAt":lightPointsAt,
+            "inputConcentration":concentration,
+            kCIInputBrightnessKey:brightness,
+            kCIInputColorKey:color,
+            kCIInputImageKey: image
+        ]
+        let filter = CIFilter(name:"CISpotColor", withInputParameters: parameters)
+        return filter.outputImage
+    }
+}
