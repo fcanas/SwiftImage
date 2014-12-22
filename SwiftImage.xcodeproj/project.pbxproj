@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E7326B501A47A1F3000BDAEF /* ColorKernelFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7326B4F1A47A1F3000BDAEF /* ColorKernelFilter.swift */; };
 		E79B91FE1A3A96BC009D6989 /* SwiftImage.h in Headers */ = {isa = PBXBuildFile; fileRef = E79B91FD1A3A96BC009D6989 /* SwiftImage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E79B92041A3A96BC009D6989 /* SwiftImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E79B91F81A3A96BC009D6989 /* SwiftImage.framework */; };
 		E79B920B1A3A96BC009D6989 /* SwiftImageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79B920A1A3A96BC009D6989 /* SwiftImageTests.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E7326B4F1A47A1F3000BDAEF /* ColorKernelFilter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorKernelFilter.swift; sourceTree = "<group>"; };
 		E79B91F81A3A96BC009D6989 /* SwiftImage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SwiftImage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E79B91FC1A3A96BC009D6989 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E79B91FD1A3A96BC009D6989 /* SwiftImage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SwiftImage.h; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 				E7B4E7B41A3E9DC8009300D6 /* SharpenFilters.swift */,
 				E7B4E7B61A3E9F11009300D6 /* StylizeFilters.swift */,
 				E7B4E7B81A3FDF7C009300D6 /* AbstractConstructors.swift */,
+				E7326B4F1A47A1F3000BDAEF /* ColorKernelFilter.swift */,
 			);
 			path = SwiftImage;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			files = (
 				E7B4E7B71A3E9F11009300D6 /* StylizeFilters.swift in Sources */,
 				E7B4E7B51A3E9DC8009300D6 /* SharpenFilters.swift in Sources */,
+				E7326B501A47A1F3000BDAEF /* ColorKernelFilter.swift in Sources */,
 				E7E207E81A3E4C62000748BC /* Generators.swift in Sources */,
 				E7E207E61A3E2EE0000748BC /* DistortionFilters.swift in Sources */,
 				E7E207E41A3E1B90000748BC /* CompositeFilters.swift in Sources */,
