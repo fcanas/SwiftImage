@@ -35,6 +35,9 @@ public class ColorKernelFilter: CIFilter {
     }
     
     func outputImage() -> CIImage? {
+        if inputImage == nil {
+            return nil
+        }
         return kernel.applyWithExtent(inputImage!.extent(), arguments: [inputImage!])
     }
 }
