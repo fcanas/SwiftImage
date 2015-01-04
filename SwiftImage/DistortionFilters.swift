@@ -59,7 +59,7 @@ public func droste(insertionPoint0: CGPoint, insertionPoint1: CGPoint, strands: 
             "inputRotation":rotation,
             "inputZoom":zoom,
             kCIInputImageKey: image]
-        let filter = CIFilter(name:"CICircularWrap", withInputParameters:parameters)
+        let filter = CIFilter(name:"CIDroste", withInputParameters:parameters)
         return filter.outputImage
     }
 }
