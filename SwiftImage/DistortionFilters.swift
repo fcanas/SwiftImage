@@ -75,7 +75,7 @@ public func displacementDistortion(displacementImage: CIImage, scale :Float) -> 
     }
 }
 
-public func displacementDistortion(texture: CIImage, center: CGPoint, scale :Float) -> Filter {
+public func glassDistortion(texture: CIImage, center: CGPoint, scale :Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             "inputTexture":texture,
