@@ -101,14 +101,14 @@ public func heightFieldFromMask(radius: Float) -> Filter {
     return radiusFilter("CIHeightFieldFromMask")(radius:radius)
 }
 
-public func hexagoanalPixelate(center: CGPoint, scale: Float) -> Filter {
+public func hexagoanalPixellate(center: CGPoint, scale: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputCenterKey:CIVector(CGPoint:center),
             kCIInputScaleKey: scale,
             kCIInputImageKey: image
         ]
-        let filter = CIFilter(name:"CIHexagonalPixelate", withInputParameters: parameters)
+        let filter = CIFilter(name:"CIHexagonalPixellate", withInputParameters: parameters)
         return filter.outputImage
     }
 }
@@ -140,14 +140,14 @@ public func lineOverlay(nrNoiseLevel: Float, nrSharpness: Float, edgeIntensity: 
     }
 }
 
-public func pixelate(center: CGPoint, scale: Float) -> Filter {
+public func pixellate(center: CGPoint, scale: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputCenterKey:CIVector(CGPoint:center),
             kCIInputScaleKey: scale,
             kCIInputImageKey: image
         ]
-        let filter = CIFilter(name:"CIPixelate", withInputParameters: parameters)
+        let filter = CIFilter(name:"CIPixellate", withInputParameters: parameters)
         return filter.outputImage
     }
 }
