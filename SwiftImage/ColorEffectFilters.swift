@@ -16,8 +16,8 @@ public func colorCrossPolynomial(redCoefficients: CIVector, greenCoefficients: C
             "inputRedCoefficients": redCoefficients,
             "inputGreenCoefficients": greenCoefficients,
             "inputBlueCoefficients": blueCoefficients,
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIColorCrossPolynomial", withInputParameters:parameters)
+            kCIInputImageKey: image!]
+        let filter = CIFilter(name:"CIColorCrossPolynomial", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
@@ -27,32 +27,32 @@ public func colorCube(dimension: Int, cube: NSData) -> Filter {
         let parameters : CIParameters = [
             "inputCubeDimension": dimension,
             "inputCubeData": cube,
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIColorCube", withInputParameters:parameters)
+            kCIInputImageKey: image!]
+        let filter = CIFilter(name:"CIColorCube", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
 
-public func colorCubeWithColorSpace(dimension: Int, cube: NSData, colorSpace: CGColorSpaceRef) -> Filter {
+public func colorCubeWithColorSpace(dimension: Int, cube: NSData, colorSpace: CGColorSpace) -> Filter {
     return { image in
         let parameters : CIParameters = [
             "inputCubeDimension": dimension,
             "inputCubeData": cube,
             "inputColorSpace": colorSpace,
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIColorCubeWithColorSpace", withInputParameters:parameters)
+            kCIInputImageKey: image!]
+        let filter = CIFilter(name:"CIColorCubeWithColorSpace", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
 
-public func colorInvert() -> Filter {return singularFilter("CIColorInvert")}
+public func colorInvert() -> Filter {return singularFilter(filterName: "CIColorInvert")}
 
 public func colorMap(gradientImage: CIImage) -> Filter {
     return { image in
         let parameters : CIParameters = [
             "inputGradientImage":gradientImage,
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIColorMap", withInputParameters:parameters)
+            kCIInputImageKey: image!]
+        let filter = CIFilter(name:"CIColorMap", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
@@ -60,10 +60,10 @@ public func colorMap(gradientImage: CIImage) -> Filter {
 public func colorMonochrome(color: UIColor, intensity: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
-            kCIInputColorKey:CIColor(CGColor:color.CGColor),
+            kCIInputColorKey:CIColor(cgColor:color.cgColor),
             kCIInputIntensityKey:intensity,
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIColorMonochrome", withInputParameters:parameters)
+            kCIInputImageKey: image!]
+        let filter = CIFilter(name:"CIColorMonochrome", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
@@ -72,8 +72,8 @@ public func colorPosterize(levels: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             "inputLevels":levels,
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIColorPosterize", withInputParameters:parameters)
+            kCIInputImageKey: image!]
+        let filter = CIFilter(name:"CIColorPosterize", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
@@ -81,58 +81,48 @@ public func colorPosterize(levels: Float) -> Filter {
 public func falseColor(color0: UIColor, color1: UIColor) -> Filter {
     return { image in
         let parameters : CIParameters = [
-            "inputColor0":CIColor(CGColor:color0.CGColor),
-            "inputColor1":CIColor(CGColor:color1.CGColor),
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIFalseColor", withInputParameters:parameters)
+            "inputColor0":CIColor(cgColor:color0.cgColor),
+            "inputColor1":CIColor(cgColor:color1.cgColor),
+            kCIInputImageKey: image!]
+        let filter = CIFilter(name:"CIFalseColor", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
 
-public func maskToAlpha() -> Filter {return singularFilter("CIMaskToAlpha")}
-
-public func maximumComponent() -> Filter {return singularFilter("CIMaximumComponent")}
-
-public func minimumComponent() -> Filter {return singularFilter("CIMinimumComponent")}
-
-public func photoEffectChrome() -> Filter {return singularFilter("CIPhotoEffectChrome")}
-
-public func photoEffectFade() -> Filter {return singularFilter("CIPhotoEffectFade")}
-
-public func photoEffectInstant() -> Filter {return singularFilter("CIPhotoEffectInstant")}
-
-public func photoEffectMono() -> Filter {return singularFilter("CIPhotoEffectMono")}
-
-public func photoEffectNoir() -> Filter {return singularFilter("CIPhotoEffectNoir")}
-
-public func photoEffectProcess() -> Filter {return singularFilter("CIPhotoEffectProcess")}
-
-public func photoEffectTonal() -> Filter {return singularFilter("CIPhotoEffectTonal")}
-
-public func photoEffectTransfer() -> Filter {return singularFilter("CIPhotoEffectTransfer")}
+public func maskToAlpha() -> Filter {return singularFilter(filterName: "CIMaskToAlpha")}
+public func maximumComponent() -> Filter {return singularFilter(filterName: "CIMaximumComponent")}
+public func minimumComponent() -> Filter {return singularFilter(filterName: "CIMinimumComponent")}
+public func photoEffectChrome() -> Filter {return singularFilter(filterName: "CIPhotoEffectChrome")}
+public func photoEffectFade() -> Filter {return singularFilter(filterName: "CIPhotoEffectFade")}
+public func photoEffectInstant() -> Filter {return singularFilter(filterName: "CIPhotoEffectInstant")}
+public func photoEffectMono() -> Filter {return singularFilter(filterName: "CIPhotoEffectMono")}
+public func photoEffectNoir() -> Filter {return singularFilter(filterName: "CIPhotoEffectNoir")}
+public func photoEffectProcess() -> Filter {return singularFilter(filterName: "CIPhotoEffectProcess")}
+public func photoEffectTonal() -> Filter {return singularFilter(filterName: "CIPhotoEffectTonal")}
+public func photoEffectTransfer() -> Filter {return singularFilter(filterName: "CIPhotoEffectTransfer")}
 
 public func sepiaTone(intensity: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputIntensityKey:intensity,
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CISepiaTone", withInputParameters:parameters)
+            kCIInputImageKey: image!]
+        let filter = CIFilter(name:"CISepiaTone", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
 
 public func vignette(radius: Float, intensity: Float) -> Filter {
-    return radiusIntensityFilter("CIVignette")(radius: radius, intensity: intensity)
+    return radiusIntensityFilter(name: "CIVignette")(radius, intensity)
 }
 
 func vignetteEffect(center: CGPoint, radius: Float, intensity: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
-            kCIInputCenterKey:CIVector(CGPoint:center),
+            kCIInputCenterKey:CIVector(cgPoint:center),
             kCIInputRadiusKey:radius,
             kCIInputIntensityKey:intensity,
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CIVignetteEffect", withInputParameters:parameters)
+            kCIInputImageKey: image!]
+        let filter = CIFilter(name:"CIVignetteEffect", withInputParameters:parameters)!
         return filter.outputImage
     }
 }

@@ -11,34 +11,35 @@ import CoreImage
 public class ColorKernelFilter: CIFilter {
     var kernelString :String
     lazy var kernel :CIColorKernel = {
-        return CIColorKernel(string: self.kernelString)
+        return CIColorKernel(source: self.kernelString)!
         }()
     
     var inputImage :CIImage?
-    
+
+    // TODO: Deprecate after iOS 12
     init(kernel: String) {
         kernelString = kernel
         super.init()
     }
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         kernelString = ""
         super.init(coder: aDecoder)
-        if let k = aDecoder.decodeObjectForKey("SwiftImageKernelStringKey") as? String {
+        if let k = aDecoder.decodeObject(forKey: "SwiftImageKernelStringKey") as? String {
             kernelString = k
         }
     }
     
-    override public func encodeWithCoder(aCoder: NSCoder) {
-        super.encodeWithCoder(aCoder)
-        aCoder.encodeObject(kernelString, forKey: "SwiftImageKernelStringKey")
+    override public func encode(with aCoder: NSCoder) {
+        super.encode(with: aCoder)
+        aCoder.encode(kernelString, forKey: "SwiftImageKernelStringKey")
     }
     
     func outputImage() -> CIImage? {
         if inputImage == nil {
             return nil
         }
-        return kernel.applyWithExtent(inputImage!.extent(), arguments: [inputImage!])
+        return kernel.apply(extent: inputImage!.extent, arguments: [inputImage!])
     }
 }
 

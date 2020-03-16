@@ -12,10 +12,10 @@ public func blendWithAlphaMask(overlay: CIImage, maskImage: CIImage) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputMaskImageKey: maskImage,
-            kCIInputBackgroundImageKey: image,
+            kCIInputBackgroundImageKey: image!,
             kCIInputImageKey: overlay
         ]
-        let filter = CIFilter(name:"CIBlendWithAlphaMask", withInputParameters: parameters)
+        let filter = CIFilter(name:"CIBlendWithAlphaMask", withInputParameters: parameters)!
         return filter.outputImage
     }
 }
@@ -24,56 +24,56 @@ public func blendWithMask(overlay: CIImage, maskImage: CIImage) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputMaskImageKey: maskImage,
-            kCIInputBackgroundImageKey: image,
+            kCIInputBackgroundImageKey: image!,
             kCIInputImageKey: overlay
         ]
-        let filter = CIFilter(name:"CIBlendWithMask", withInputParameters: parameters)
+        let filter = CIFilter(name:"CIBlendWithMask", withInputParameters: parameters)!
         return filter.outputImage
     }
 }
 
 public func bloom(radius: Float, intensity: Float) -> Filter {
-    return radiusIntensityFilter("CIBloom")(radius: radius, intensity: intensity)
+    return radiusIntensityFilter(name: "CIBloom")(radius, intensity)
 }
 
-public func comicEffect() -> Filter { return singularFilter("CIComicEffect") }
+public func comicEffect() -> Filter { return singularFilter(filterName: "CIComicEffect") }
 
 public func convolution3X3(weights: CIVector, bias: Float) -> Filter {
-    return convolutionFixedFilter("CIConvolution3X3")(weights: weights, bias: bias)
+    return convolutionFixedFilter(name: "CIConvolution3X3")(weights, bias)
 }
 
 public func convolution5X5(weights: CIVector, bias: Float) -> Filter {
-    return convolutionFixedFilter("CIConvolution5X5")(weights: weights, bias: bias)
+    return convolutionFixedFilter(name: "CIConvolution5X5")(weights, bias)
 }
 
 public func convolution7X7(weights: CIVector, bias: Float) -> Filter {
-    return convolutionFixedFilter("CIConvolution7X7")(weights: weights, bias: bias)
+    return convolutionFixedFilter(name: "CIConvolution7X7")(weights, bias)
 }
 
 public func convolution9Vertical(weights: CIVector, bias: Float) -> Filter {
-    return convolutionFixedFilter("CIConvolution9Vertical")(weights: weights, bias: bias)
+    return convolutionFixedFilter(name: "CIConvolution9Vertical")(weights, bias)
 }
 
 public func convolution9Horizontal(weights: CIVector, bias: Float) -> Filter {
-    return convolutionFixedFilter("CIConvolution9Horizontal")(weights: weights, bias: bias)
+    return convolutionFixedFilter(name: "CIConvolution9Horizontal")(weights, bias)
 }
 
 public func crystalize(center: CGPoint, radius: Float) -> Filter {
-    return centerRadiusFilter("CICrystalize")(center:center, radius:radius)
+    return centerRadiusFilter(name: "CICrystalize")(center, radius)
 }
 
 public func depthOfField(point1: CGPoint, point2: CGPoint, saturation: Float, unsharpMaskRadius: Float, unsharpMaskIntensity: Float, radius: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
-            "inputPoint1": CIVector(CGPoint:point1),
-            "inputPoint2": CIVector(CGPoint:point2),
+            "inputPoint1": CIVector(cgPoint:point1),
+            "inputPoint2": CIVector(cgPoint:point2),
             kCIInputSaturationKey:saturation,
             "inputUnsharpMaskRadius":unsharpMaskRadius,
             "inputUnsharpMaskIntensity":unsharpMaskIntensity,
             kCIInputRadiusKey: radius,
-            kCIInputImageKey: image
+            kCIInputImageKey: image!
         ]
-        let filter = CIFilter(name:"CIDepthOfField", withInputParameters: parameters)
+        let filter = CIFilter(name:"CIDepthOfField", withInputParameters: parameters)!
         return filter.outputImage
     }
 }
@@ -82,33 +82,33 @@ public func edges(intensity: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
             kCIInputIntensityKey: intensity,
-            kCIInputImageKey: image
+            kCIInputImageKey: image!
         ]
-        let filter = CIFilter(name:"CIEdges", withInputParameters: parameters)
+        let filter = CIFilter(name:"CIEdges", withInputParameters: parameters)!
         return filter.outputImage
     }
 }
 
 public func edgeWork(radius: Float) -> Filter {
-    return radiusFilter("CIEdgeWork")(radius:radius)
+    return radiusFilter(name: "CIEdgeWork")(radius)
 }
 
 public func gloom(radius: Float, intensity: Float) -> Filter {
-    return radiusIntensityFilter("CIGloom")(radius:radius, intensity:intensity)
+    return radiusIntensityFilter(name: "CIGloom")(radius, intensity)
 }
 
 public func heightFieldFromMask(radius: Float) -> Filter {
-    return radiusFilter("CIHeightFieldFromMask")(radius:radius)
+    return radiusFilter(name: "CIHeightFieldFromMask")(radius)
 }
 
 public func hexagoanalPixellate(center: CGPoint, scale: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
-            kCIInputCenterKey:CIVector(CGPoint:center),
+            kCIInputCenterKey:CIVector(cgPoint:center),
             kCIInputScaleKey: scale,
-            kCIInputImageKey: image
+            kCIInputImageKey: image!
         ]
-        let filter = CIFilter(name:"CIHexagonalPixellate", withInputParameters: parameters)
+        let filter = CIFilter(name:"CIHexagonalPixellate", withInputParameters: parameters)!
         return filter.outputImage
     }
 }
@@ -118,9 +118,9 @@ public func highlightShadowAdjust(highlightAmount: Float, shadowAmount: Float) -
         let parameters : CIParameters = [
             "inputHighlightAmount":highlightAmount,
             "inputshadowAmount": shadowAmount,
-            kCIInputImageKey: image
+            kCIInputImageKey: image!
         ]
-        let filter = CIFilter(name:"CIHighlightShadowAmount", withInputParameters: parameters)
+        let filter = CIFilter(name:"CIHighlightShadowAmount", withInputParameters: parameters)!
         return filter.outputImage
     }
 }
@@ -133,9 +133,9 @@ public func lineOverlay(nrNoiseLevel: Float, nrSharpness: Float, edgeIntensity: 
             "inputEdgeIntensity":edgeIntensity,
             "inputThreshold":threshold,
             "inputContrast":contrast,
-            kCIInputImageKey: image
+            kCIInputImageKey: image!
         ]
-        let filter = CIFilter(name:"CILineOverlay", withInputParameters: parameters)
+        let filter = CIFilter(name:"CILineOverlay", withInputParameters: parameters)!
         return filter.outputImage
     }
 }
@@ -143,17 +143,17 @@ public func lineOverlay(nrNoiseLevel: Float, nrSharpness: Float, edgeIntensity: 
 public func pixellate(center: CGPoint, scale: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
-            kCIInputCenterKey:CIVector(CGPoint:center),
+            kCIInputCenterKey:CIVector(cgPoint:center),
             kCIInputScaleKey: scale,
-            kCIInputImageKey: image
+            kCIInputImageKey: image!
         ]
-        let filter = CIFilter(name:"CIPixellate", withInputParameters: parameters)
+        let filter = CIFilter(name:"CIPixellate", withInputParameters: parameters)!
         return filter.outputImage
     }
 }
 
 public func pointilize(radius: Float, center: CGPoint) -> Filter {
-    return centerRadiusFilter("CIPointilize")(center:center,radius:radius)
+    return centerRadiusFilter(name: "CIPointilize")(center,radius)
 }
 
 public func shadedMaterial(shadingImage:CIImage, scale: Float) -> Filter {
@@ -161,9 +161,9 @@ public func shadedMaterial(shadingImage:CIImage, scale: Float) -> Filter {
         let parameters : CIParameters = [
             "inputShadingImage":shadingImage,
             kCIInputScaleKey: scale,
-            kCIInputImageKey: image
+            kCIInputImageKey: image!
         ]
-        let filter = CIFilter(name:"CIShadedMaterial", withInputParameters: parameters)
+        let filter = CIFilter(name:"CIShadedMaterial", withInputParameters: parameters)!
         return filter.outputImage
     }
 }
@@ -190,9 +190,9 @@ public func spotColor(
             "inputCloseness1":closeness3,
             "inputContrast1":contrast3,
             
-            kCIInputImageKey: image
+            kCIInputImageKey: image!
         ]
-        let filter = CIFilter(name:"CISpotColor", withInputParameters: parameters)
+        let filter = CIFilter(name:"CISpotColor", withInputParameters: parameters)!
         return filter.outputImage
     }
 }
@@ -205,9 +205,9 @@ public func spotLight(lightPosition:CIVector, lightPointsAt:CIVector, brightness
             "inputConcentration":concentration,
             kCIInputBrightnessKey:brightness,
             kCIInputColorKey:color,
-            kCIInputImageKey: image
+            kCIInputImageKey: image!
         ]
-        let filter = CIFilter(name:"CISpotColor", withInputParameters: parameters)
+        let filter = CIFilter(name:"CISpotColor", withInputParameters: parameters)!
         return filter.outputImage
     }
 }

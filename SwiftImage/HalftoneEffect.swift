@@ -12,10 +12,10 @@ public func circularScreen(center: CGPoint, width: Float, sharpness: Float) -> F
     return { image in
         let parameters : CIParameters = [
             kCIInputWidthKey:width,
-            kCIInputCenterKey:CIVector(CGPoint:center),
+            kCIInputCenterKey:CIVector(cgPoint:center),
             "inputSharpness":sharpness,
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CICircularScreen", withInputParameters:parameters)
+            kCIInputImageKey: image!]
+        let filter = CIFilter(name:"CICircularScreen", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
@@ -24,39 +24,39 @@ public func CMYKHalftone(center: CGPoint, width: Float, angle: Float, sharpness:
     return { image in
         let parameters : CIParameters = [
             kCIInputWidthKey:width,
-            kCIInputCenterKey:CIVector(CGPoint:center),
+            kCIInputCenterKey:CIVector(cgPoint:center),
             kCIInputAngleKey:width,
             "inputSharpness":sharpness,
             "inputCGR":grayComponentReplacement,
             "inputUCR":underColorRemoval,
-            kCIInputImageKey: image]
-        let filter = CIFilter(name:"CICMYKHalftone", withInputParameters:parameters)
+            kCIInputImageKey: image!]
+        let filter = CIFilter(name:"CICMYKHalftone", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
 
 public func dotScreen(center: CGPoint, width: Float, angle: Float, sharpness: Float) -> Filter {
-    return screen("CIDotScreen")(center:center, width:width, angle:angle, sharpness:sharpness)
+    return screen(name: "CIDotScreen")(center, width, angle, sharpness)
 }
 
 public func hatchedScreen(center: CGPoint, width: Float, angle: Float, sharpness: Float) -> Filter {
-    return screen("CIHatchedScreen")(center:center, width:width, angle:angle, sharpness:sharpness)
+    return screen(name: "CIHatchedScreen")(center, width, angle, sharpness)
 }
 
 public func lineScreen(center: CGPoint, width: Float, angle: Float, sharpness: Float) -> Filter {
-    return screen("CILineScreen")(center:center, width:width, angle:angle, sharpness:sharpness)
+    return screen(name: "CILineScreen")(center, width, angle, sharpness)
 }
 
-private func screen(name: String) -> (center: CGPoint, width: Float, angle: Float, sharpness: Float) -> Filter {
+private func screen(name: String) -> (_ center: CGPoint, _ width: Float, _ angle: Float, _ sharpness: Float) -> Filter {
     return { center, width, angle, sharpness in
         return { image in
             let parameters : CIParameters = [
                 kCIInputWidthKey:width,
-                kCIInputCenterKey:CIVector(CGPoint:center),
+                kCIInputCenterKey:CIVector(cgPoint:center),
                 kCIInputAngleKey:width,
                 "inputSharpness":sharpness,
-                kCIInputImageKey: image]
-            let filter = CIFilter(name:name, withInputParameters:parameters)
+                kCIInputImageKey: image!]
+            let filter = CIFilter(name:name, withInputParameters:parameters)!
             return filter.outputImage
         }
     }

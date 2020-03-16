@@ -8,36 +8,36 @@
 
 import Foundation
 
-private func extentFilter(name: String) -> (extent: CGRect) -> Filter {
+private func extentFilter(name: String) -> (_ extent: CGRect) -> Filter {
     return { extent in
         return { image in
             let parameters : CIParameters = [
-                "inputExtent":CIVector(CGRect:extent),
-                kCIInputImageKey: image]
-            let filter = CIFilter(name:"CIAreaAverage", withInputParameters:parameters)
+                "inputExtent":CIVector(cgRect:extent),
+                kCIInputImageKey: image!]
+            let filter = CIFilter(name:"CIAreaAverage", withInputParameters:parameters)!
             return filter.outputImage
         }
     }
 }
 
-public func areaAverage(extent: CGRect) -> Filter { return extentFilter("CIAreaAverage")(extent:extent)}
+public func areaAverage(extent: CGRect) -> Filter { return extentFilter(name: "CIAreaAverage")(extent)}
 
 public func areaHistogram(extent: CGRect, count: Int, scale: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [
-            "inputExtent":CIVector(CGRect:extent),
-            kCIInputImageKey: image,
+            "inputExtent":CIVector(cgRect:extent),
+            kCIInputImageKey: image!,
             "inputCount": count,
             "inputScale": scale
         ]
-        let filter = CIFilter(name:"CIAreaHistogram", withInputParameters:parameters)
+        let filter = CIFilter(name:"CIAreaHistogram", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
 
-public func rowAverage(extent: CGRect) -> Filter {return extentFilter("CIRowAverage")(extent:extent)}
+public func rowAverage(extent: CGRect) -> Filter {return extentFilter(name: "CIRowAverage")(extent)}
 
-public func columnAverage(extent: CGRect) -> Filter {return extentFilter("CIColumnAverage")(extent:extent)}
+public func columnAverage(extent: CGRect) -> Filter {return extentFilter(name: "CIColumnAverage")(extent)}
 
 public func histogramDisplayFilter(height: Float, highLimit: Float, lowLimit: Float) -> Filter {
     return { image in
@@ -45,18 +45,18 @@ public func histogramDisplayFilter(height: Float, highLimit: Float, lowLimit: Fl
             "inputHighLimit":highLimit,
             "inputLowLimit":lowLimit,
             "inputHeight": height,
-            kCIInputImageKey: image,
+            kCIInputImageKey: image!,
         ]
-        let filter = CIFilter(name:"CIHistogramDisplayFilter", withInputParameters:parameters)
+        let filter = CIFilter(name:"CIHistogramDisplayFilter", withInputParameters:parameters)!
         return filter.outputImage
     }
 }
 
-public func areaMaximum(extent: CGRect) -> Filter {return extentFilter("CIAreaMaximum")(extent:extent)}
+public func areaMaximum(extent: CGRect) -> Filter {return extentFilter(name: "CIAreaMaximum")(extent)}
 
-public func areaMinimum(extent: CGRect) -> Filter {return extentFilter("CIAreaMinimum")(extent:extent)}
+public func areaMinimum(extent: CGRect) -> Filter {return extentFilter(name: "CIAreaMinimum")(extent)}
 
-public func areaMaximumAlpha(extent: CGRect) -> Filter {return extentFilter("CIAreaMaximumAlpha")(extent:extent)}
+public func areaMaximumAlpha(extent: CGRect) -> Filter {return extentFilter(name: "CIAreaMaximumAlpha")(extent)}
 
-public func areaMinimumAlpha(extent: CGRect) -> Filter {return extentFilter("CIAreaMinimumAlpha")(extent:extent)}
+public func areaMinimumAlpha(extent: CGRect) -> Filter {return extentFilter(name: "CIAreaMinimumAlpha")(extent)}
 
