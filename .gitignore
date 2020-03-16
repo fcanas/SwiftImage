@@ -1,2 +1,4 @@
 SwiftImage.xcodeproj/xcuserdata
 *.xccheckout
+.build
+SwiftImage.xcodeproj

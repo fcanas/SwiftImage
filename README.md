@@ -7,7 +7,7 @@ Based on the great example from [objc.io](https://github.com/objcio/issue-16-fun
 # License
 
 ```
-Copyright (c) 2014 Fabian Canas. All rights reserved.
+Copyright (c) 2014-2020 Fabian Canas. All rights reserved.
 
 This code is distributed under the terms and conditions of the MIT license.
 
