@@ -15,7 +15,7 @@ public func bumpDistortion(center: CGPoint, radius: Float, scale: Float) -> Filt
             kCIInputCenterKey:CIVector(cgPoint:center),
             kCIInputScaleKey:scale,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIBumpDistortion", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIBumpDistortion", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -28,7 +28,7 @@ public func bumpDistortionLinear(center: CGPoint, radius: Float, angle:Float, sc
             kCIInputAngleKey:angle,
             kCIInputScaleKey:scale,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIBumpDistortionLinear", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIBumpDistortionLinear", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -44,7 +44,7 @@ public func circularWrap(center: CGPoint, radius: Float, angle:Float) -> Filter 
             kCIInputCenterKey:CIVector(cgPoint:center),
             kCIInputAngleKey:angle,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CICircularWrap", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CICircularWrap", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -59,7 +59,7 @@ public func droste(insertionPoint0: CGPoint, insertionPoint1: CGPoint, strands: 
             "inputRotation":rotation,
             "inputZoom":zoom,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIDroste", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIDroste", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -70,7 +70,7 @@ public func displacementDistortion(displacementImage: CIImage, scale :Float) -> 
             "inputDisplacementImage":displacementImage,
             kCIInputScaleKey:scale,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIDisplacementDistortion", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIDisplacementDistortion", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -82,7 +82,7 @@ public func glassDistortion(texture: CIImage, center: CGPoint, scale :Float) -> 
             kCIInputCenterKey:CIVector(cgPoint:center),
             kCIInputScaleKey:scale,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIGlassDistortion", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIGlassDistortion", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -95,7 +95,7 @@ public func glassLozenge(point0: CGPoint, point1: CGPoint, radius :Float, refrac
             kCIInputRadiusKey:radius,
             "inputRefraction":refraction,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIGlassLozenge", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIGlassLozenge", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -111,7 +111,7 @@ public func lightTunnel(center: CGPoint, radius: Float, rotation:Float) -> Filte
             kCIInputCenterKey:CIVector(cgPoint:center),
             "inputRotation":rotation,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CILightTunnel", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CILightTunnel", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -123,7 +123,7 @@ public func pinchDistortion(center: CGPoint, radius: Float, scale:Float) -> Filt
             kCIInputCenterKey:CIVector(cgPoint:center),
             kCIInputScaleKey:scale,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIPinchDistortion", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIPinchDistortion", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -135,7 +135,7 @@ func stretchCrop(size: CGSize, cropAmount: Float, centerStretchAmount: Float) ->
             "inputCropAmount":cropAmount,
             "inputCenterStretchAmount":centerStretchAmount,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIStretchCrop", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIStretchCrop", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -147,7 +147,7 @@ public func torusLensDistortion(center: CGPoint, radius: Float, width: Float, re
             kCIInputRadiusKey:radius,
             kCIInputWidthKey:width,
             "inputRefraction": refraction]
-        let filter = CIFilter(name:"CITorusLensDistortion", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CITorusLensDistortion", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -159,7 +159,7 @@ public func twirlDistortion(center: CGPoint, radius: Float, angle:Float) -> Filt
             kCIInputCenterKey:CIVector(cgPoint:center),
             kCIInputAngleKey:angle,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CITwirlDistortion", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CITwirlDistortion", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -171,7 +171,7 @@ public func vortexDistortion(center: CGPoint, radius: Float, angle:Float) -> Fil
             kCIInputCenterKey:CIVector(cgPoint:center),
             kCIInputAngleKey:angle,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIVortexDistortion", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIVortexDistortion", parameters:parameters)!
         return filter.outputImage
     }
 }

@@ -14,7 +14,7 @@ private func extentFilter(name: String) -> (_ extent: CGRect) -> Filter {
             let parameters : CIParameters = [
                 "inputExtent":CIVector(cgRect:extent),
                 kCIInputImageKey: image!]
-            let filter = CIFilter(name:"CIAreaAverage", withInputParameters:parameters)!
+            let filter = CIFilter(name:"CIAreaAverage", parameters:parameters)!
             return filter.outputImage
         }
     }
@@ -30,7 +30,7 @@ public func areaHistogram(extent: CGRect, count: Int, scale: Float) -> Filter {
             "inputCount": count,
             "inputScale": scale
         ]
-        let filter = CIFilter(name:"CIAreaHistogram", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIAreaHistogram", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -47,7 +47,7 @@ public func histogramDisplayFilter(height: Float, highLimit: Float, lowLimit: Fl
             "inputHeight": height,
             kCIInputImageKey: image!,
         ]
-        let filter = CIFilter(name:"CIHistogramDisplayFilter", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIHistogramDisplayFilter", parameters:parameters)!
         return filter.outputImage
     }
 }

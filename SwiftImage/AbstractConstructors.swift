@@ -15,7 +15,7 @@ func singularFilter(filterName: String) -> Filter {
         let parameters : CIParameters = [
             kCIInputImageKey: image!
         ]
-        let filter = CIFilter(name:filterName, withInputParameters: parameters)!
+        let filter = CIFilter(name:filterName, parameters: parameters)!
         return filter.outputImage
     }
 }
@@ -29,7 +29,7 @@ func overlayFilter(filterName: String) -> Overlay {
                 kCIInputBackgroundImageKey: image!,
                 kCIInputImageKey: overlay
             ]
-            let filter = CIFilter(name:filterName, withInputParameters: parameters)!
+            let filter = CIFilter(name:filterName, parameters: parameters)!
             return filter.outputImage
         }
     }
@@ -39,7 +39,7 @@ func radiusFilter(name: String) -> (_ radius: Float) -> Filter {
     return { radius in
         return { image in
             let parameters : CIParameters = [kCIInputRadiusKey: radius, kCIInputImageKey: image!]
-            let filter = CIFilter(name:name, withInputParameters:parameters)!
+            let filter = CIFilter(name:name, parameters:parameters)!
             return filter.outputImage
         }
     }
@@ -52,7 +52,7 @@ func radiusIntensityFilter(name: String) -> (_ radius: Float, _ intensity :Float
                 kCIInputRadiusKey:radius,
                 kCIInputIntensityKey:intensity,
                 kCIInputImageKey: image!]
-            let filter = CIFilter(name:name, withInputParameters:parameters)!
+            let filter = CIFilter(name:name, parameters:parameters)!
             return filter.outputImage
         }
     }
@@ -65,7 +65,7 @@ func centerRadiusFilter(name: String) -> (_ center :CGPoint, _ radius: Float) ->
                 kCIInputRadiusKey:radius,
                 kCIInputCenterKey:CIVector(cgPoint:center),
                 kCIInputImageKey: image!]
-            let filter = CIFilter(name:name, withInputParameters:parameters)!
+            let filter = CIFilter(name:name, parameters:parameters)!
             return filter.outputImage
         }
     }
@@ -79,7 +79,7 @@ func convolutionFixedFilter(name: String) -> (_ weights: CIVector, _ bias :Float
                 "inputBias": bias,
                 kCIInputImageKey: image!
             ]
-            let filter = CIFilter(name:name, withInputParameters: parameters)!
+            let filter = CIFilter(name:name, parameters: parameters)!
             return filter.outputImage
         }
     }

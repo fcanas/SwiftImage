@@ -16,7 +16,7 @@ public func colorClamp(minComponents: UIColor, maxComponents: UIColor) -> Filter
             "inputMaxComponents": CIVector(color:maxComponents),
             "inputMinComponents": CIVector(color:minComponents),
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIColorClamp", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIColorClamp", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -28,7 +28,7 @@ public func colorControls(saturation: CGFloat, brightness: CGFloat, contrast: CG
             kCIInputBrightnessKey: brightness,
             kCIInputContrastKey: contrast,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIColorControls", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIColorControls", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -42,7 +42,7 @@ public func colorMatrix(r: UIColor, g: UIColor, b: UIColor, a: UIColor, bias: UI
             "inputAVector": CIVector(color: a),
             "inputBiasVector": CIVector(color: bias),
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIColorControls", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIColorControls", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -55,7 +55,7 @@ public func colorPolynomial(r: CIVector, g: CIVector, b: CIVector, a: CIVector) 
             "inputBlueCoefficients": b,
             "inputAlphaCoefficients": a,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIColorPolynomial", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIColorPolynomial", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -63,7 +63,7 @@ public func colorPolynomial(r: CIVector, g: CIVector, b: CIVector, a: CIVector) 
 public func exposureAdjust(EV: Double) -> Filter {
     return { image in
         let parameters : CIParameters = [kCIInputEVKey: EV, kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIExposureAdjust", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIExposureAdjust", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -71,7 +71,7 @@ public func exposureAdjust(EV: Double) -> Filter {
 public func gammaAdjust(power: Double) -> Filter {
     return { image in
         let parameters : CIParameters = ["inputPower": power, kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIGammaAdjust", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIGammaAdjust", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -79,7 +79,7 @@ public func gammaAdjust(power: Double) -> Filter {
 public func hueAdjust(angle: Double) -> Filter {
     return { image in
         let parameters : CIParameters = [kCIInputAngleKey: angle, kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIHueAdjust", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIHueAdjust", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -94,7 +94,7 @@ public func temperatureAndTint(neutral: CIVector, targetNeutral: CIVector) -> Fi
             "inputNeutral": neutral,
             "inputTargetNeutral": targetNeutral,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CITemperatureAndTint", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CITemperatureAndTint", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -108,7 +108,7 @@ public func toneCurve(point0: CIVector, point1: CIVector, point2: CIVector, poin
             "inputPoint3": point3,
             "inputPoint4": point4,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIToneCurve", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIToneCurve", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -116,7 +116,7 @@ public func toneCurve(point0: CIVector, point1: CIVector, point2: CIVector, poin
 public func vibrance(amount: Double) -> Filter {
     return { image in
         let parameters : CIParameters = ["inputAmount": amount, kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIVibrance", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIVibrance", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -124,7 +124,7 @@ public func vibrance(amount: Double) -> Filter {
 public func whitePointAdjust(color: UIColor) -> Filter {
     return { image in
         let parameters : CIParameters = [kCIInputColorKey: CIColor(cgColor: color.cgColor), kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIWhitePointAdjust", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIWhitePointAdjust", parameters:parameters)!
         return filter.outputImage
     }
 }

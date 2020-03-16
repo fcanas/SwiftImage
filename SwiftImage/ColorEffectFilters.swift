@@ -17,7 +17,7 @@ public func colorCrossPolynomial(redCoefficients: CIVector, greenCoefficients: C
             "inputGreenCoefficients": greenCoefficients,
             "inputBlueCoefficients": blueCoefficients,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIColorCrossPolynomial", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIColorCrossPolynomial", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -28,7 +28,7 @@ public func colorCube(dimension: Int, cube: NSData) -> Filter {
             "inputCubeDimension": dimension,
             "inputCubeData": cube,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIColorCube", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIColorCube", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -40,7 +40,7 @@ public func colorCubeWithColorSpace(dimension: Int, cube: NSData, colorSpace: CG
             "inputCubeData": cube,
             "inputColorSpace": colorSpace,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIColorCubeWithColorSpace", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIColorCubeWithColorSpace", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -52,7 +52,7 @@ public func colorMap(gradientImage: CIImage) -> Filter {
         let parameters : CIParameters = [
             "inputGradientImage":gradientImage,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIColorMap", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIColorMap", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -63,7 +63,7 @@ public func colorMonochrome(color: UIColor, intensity: Float) -> Filter {
             kCIInputColorKey:CIColor(cgColor:color.cgColor),
             kCIInputIntensityKey:intensity,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIColorMonochrome", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIColorMonochrome", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -73,7 +73,7 @@ public func colorPosterize(levels: Float) -> Filter {
         let parameters : CIParameters = [
             "inputLevels":levels,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIColorPosterize", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIColorPosterize", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -84,7 +84,7 @@ public func falseColor(color0: UIColor, color1: UIColor) -> Filter {
             "inputColor0":CIColor(cgColor:color0.cgColor),
             "inputColor1":CIColor(cgColor:color1.cgColor),
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIFalseColor", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIFalseColor", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -106,7 +106,7 @@ public func sepiaTone(intensity: Float) -> Filter {
         let parameters : CIParameters = [
             kCIInputIntensityKey:intensity,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CISepiaTone", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CISepiaTone", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -122,7 +122,7 @@ func vignetteEffect(center: CGPoint, radius: Float, intensity: Float) -> Filter 
             kCIInputRadiusKey:radius,
             kCIInputIntensityKey:intensity,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIVignetteEffect", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIVignetteEffect", parameters:parameters)!
         return filter.outputImage
     }
 }

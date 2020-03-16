@@ -14,7 +14,7 @@ public func sharpenLuminance(sharpness: Float) -> Filter {
             kCIInputImageKey:image!,
             kCIInputSharpnessKey:sharpness
         ]
-        return CIFilter(name:"CISharpenLuminance", withInputParameters:parameters)?.outputImage
+        return CIFilter(name:"CISharpenLuminance", parameters:parameters)?.outputImage
     }
 }
 

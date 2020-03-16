@@ -24,7 +24,7 @@ public func medianBlur(radius: Float) -> Filter {return radiusFilter(name: "CIMe
 public func motionBlur(radius: Float, angle: Float) -> Filter {
     return { image in
         let parameters : CIParameters = [kCIInputRadiusKey: radius, kCIInputAngleKey: angle, kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIMotionBlur", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIMotionBlur", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -33,7 +33,7 @@ public func motionBlur(radius: Float, angle: Float) -> Filter {
 public func noiseReduction(inputNoiseLevel: Float, inputSharpness: Float) -> Filter {
     return { image in
         let parameters : CIParameters = ["inputNoiseLevel": inputNoiseLevel, "inputSharpness": inputSharpness, kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CIMotionBlur", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CIMotionBlur", parameters:parameters)!
         return filter.outputImage
     }
 }

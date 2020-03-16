@@ -10,7 +10,7 @@ import Foundation
 
 public func colorGenerator(color: UIColor) -> Filter {
     return { _ in
-        return CIFilter(name:"CIConstantColorGenerator", withInputParameters: [kCIInputColorKey: CIColor(color: color)])?.outputImage
+        return CIFilter(name:"CIConstantColorGenerator", parameters: [kCIInputColorKey: CIColor(color: color)])?.outputImage
     }
 }
 
@@ -22,7 +22,7 @@ public func checkerboardGenerator(color0: UIColor, color1: UIColor, width: Float
             "inputWidth": width,
             "inputSharpness":sharpness
         ]
-        let filter = CIFilter(name:"CICheckerboardGenerator", withInputParameters: parameters)!
+        let filter = CIFilter(name:"CICheckerboardGenerator", parameters: parameters)!
         return filter.outputImage
     }
 }
@@ -37,7 +37,7 @@ public func lenticularHalogGenerator(center: CGPoint, color: UIColor, haloRadius
             "inputStriationContrast": striationContrast,
             "inputTime": time
         ]
-        let filter = CIFilter(name:"CILenticularHaloGenerator", withInputParameters: parameters)!
+        let filter = CIFilter(name:"CILenticularHaloGenerator", parameters: parameters)!
         return filter.outputImage
     }
 }
@@ -65,7 +65,7 @@ public func QRCodeGenerator(message: String, correctionLevel: CICorrectionLevel)
         let parameters = [
             "inputMessage":message,
             "inputCorrectionLevel":correctionLevelString]
-        let filter = CIFilter(name:"CIQRCodeGenerator", withInputParameters: parameters)!
+        let filter = CIFilter(name:"CIQRCodeGenerator", parameters: parameters)!
         return filter.outputImage
     }
 }
@@ -84,7 +84,7 @@ public func starShineGenerator(center: CGPoint, color: UIColor, radius: Float, c
             "inputCrossWidth": crossWidth,
             "inputEpsilon": epsilon,
         ]
-        let filter = CIFilter(name:"CIStarShineGenerator", withInputParameters: parameters)!
+        let filter = CIFilter(name:"CIStarShineGenerator", parameters: parameters)!
         return filter.outputImage
     }
 }
@@ -97,7 +97,7 @@ public func stripesGenerator(color0: UIColor, color1: UIColor, width: Float, sha
             "inputWidth": width,
             "inputSharpness":sharpness
         ]
-        let filter = CIFilter(name:"CICStripesGenerator", withInputParameters: parameters)!
+        let filter = CIFilter(name:"CICStripesGenerator", parameters: parameters)!
         return filter.outputImage
     }
 }
@@ -113,7 +113,7 @@ public func sunbeamGenerator(center: CGPoint, color: UIColor, sunRadius: Float, 
             "inputStriationContrast": striationContrast,
             "inputTime": time
         ]
-        let filter = CIFilter(name:"CISunbeamGenerator", withInputParameters: parameters)!
+        let filter = CIFilter(name:"CISunbeamGenerator", parameters: parameters)!
         return filter.outputImage
     }
 }

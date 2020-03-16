@@ -15,7 +15,7 @@ public func gaussianGradient(color0: UIColor, color1: UIColor, radius: Float) ->
             "inputColor1": CIColor(cgColor: color1.cgColor),
             kCIInputRadiusKey: radius
         ]
-        let filter = CIFilter(name:"CIGaussianGradient", withInputParameters: parameters)!
+        let filter = CIFilter(name:"CIGaussianGradient", parameters: parameters)!
         return filter.outputImage
     }
 }
@@ -28,7 +28,7 @@ public func linearGradient(color0: UIColor, color1: UIColor, point0: CGPoint, po
             "inputPoint0": CIVector(cgPoint: point0),
             "inputPoint1": CIVector(cgPoint: point1)
         ]
-        let filter = CIFilter(name:"CILinearGradient", withInputParameters: parameters)!
+        let filter = CIFilter(name:"CILinearGradient", parameters: parameters)!
         return filter.outputImage
     }
 }
@@ -42,7 +42,7 @@ public func radialGradient(color0: UIColor, color1: UIColor, radius0: Float, rad
             "inputRadius1": radius1,
             "inputCenter": CIVector(cgPoint: center)
         ]
-        let filter = CIFilter(name:"CIRadialGradient", withInputParameters: parameters)!
+        let filter = CIFilter(name:"CIRadialGradient", parameters: parameters)!
         return filter.outputImage
     }
 }
@@ -55,7 +55,7 @@ public func smoothLinearGradient(color0: UIColor, color1: UIColor, point0: CGPoi
             "inputPoint0": CIVector(cgPoint: point0),
             "inputPoint1": CIVector(cgPoint: point1)
         ]
-        let filter = CIFilter(name:"CISmoothLinearGradient", withInputParameters: parameters)!
+        let filter = CIFilter(name:"CISmoothLinearGradient", parameters: parameters)!
         return filter.outputImage
     }
 }

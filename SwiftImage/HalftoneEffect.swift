@@ -15,7 +15,7 @@ public func circularScreen(center: CGPoint, width: Float, sharpness: Float) -> F
             kCIInputCenterKey:CIVector(cgPoint:center),
             "inputSharpness":sharpness,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CICircularScreen", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CICircularScreen", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -30,7 +30,7 @@ public func CMYKHalftone(center: CGPoint, width: Float, angle: Float, sharpness:
             "inputCGR":grayComponentReplacement,
             "inputUCR":underColorRemoval,
             kCIInputImageKey: image!]
-        let filter = CIFilter(name:"CICMYKHalftone", withInputParameters:parameters)!
+        let filter = CIFilter(name:"CICMYKHalftone", parameters:parameters)!
         return filter.outputImage
     }
 }
@@ -56,7 +56,7 @@ private func screen(name: String) -> (_ center: CGPoint, _ width: Float, _ angle
                 kCIInputAngleKey:width,
                 "inputSharpness":sharpness,
                 kCIInputImageKey: image!]
-            let filter = CIFilter(name:name, withInputParameters:parameters)!
+            let filter = CIFilter(name:name, parameters:parameters)!
             return filter.outputImage
         }
     }
